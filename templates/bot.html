@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+{% if user.is_authenticated %}
+<p><a href="{% url 'bot' %}?generate=yes">Generate code</a></p>
+{% endif %}
+
+{% if reg_code %}
+<p>{{ user.username }}, send a telegram bot named {{ bot_name }} a message with the code: {{ reg_code }}</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Registartion</title>
+</head>
+<body>
+
+<p><a href="{% url 'index' %}">Home</a></p>
+
+{% if user.is_authenticated %}
+    <p>Authenticated</p>
+{% else %}
+    <p>Not Autheticated</p>
+{% endif %}
+
+{% block main %}
+
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+        <p><a href="{% url 'bot' %}">Bot registration</a></p>
+    {% else %}
+        <p><a href="{% url 'create_user' %}">Registration</a></p>
+        <p><a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
