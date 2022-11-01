@@ -3,7 +3,7 @@ from django.db import models
 
 
 class TelegramID(models.Model):
-    telegram_id = models.CharField('Telegram id', max_length=100, unique=False)
+    telegram_id = models.CharField('Telegram id', max_length=100)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='telegram_id')
 
 
