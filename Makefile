@@ -14,6 +14,6 @@ shell:
 	poetry run python manage.py shell
 
 requiremets:
-	poetry export -f requirements.txt --output requirements.txt
+	poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 init: makemigration, migrate

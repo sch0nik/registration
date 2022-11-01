@@ -15,7 +15,7 @@ def response(update, context):
     code = RegistrationCode.objects.filter(code__exact=code)
     if code:
         user = code[0].user
-        if user:
+        if TelegramID.objects.filter(user__exact=user):
             user.telegram_id.telegram_id = tg_id
             user.telegram_id.save()
         else:

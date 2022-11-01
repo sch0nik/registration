@@ -21,7 +21,8 @@ class BotUrlView(TemplateView):
             code = random.randint(10_000, 100_000)
             context['reg_code'] = code
             user = self.request.user
-            if user.reg_code:
+
+            if RegistrationCode.objects.filter(user__exact=user):
                 user.reg_code.code = code
                 user.reg_code.created_at = datetime.now()
                 user.reg_code.save()
